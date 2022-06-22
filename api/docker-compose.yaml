@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  api-docker-2:
+    container_name: api-docker-2
+    image: api-docker-2:v1
+    network_mode: bridge
+    restart: always
+    ports:
+      - "80:80"
+  database:
+    container_name: mysql-server
+    image: mysql:5.7
+    network_mode: bridge
+    restart: always    
+    environment:
+      MYSQL_DATABASE: 'sait_webservice_rs'
+      MYSQL_USER: 'user1'
+      MYSQL_PASSWORD: '123'
+      MYSQL_ROOT_PASSWORD: '123'
+    ports:
+      - '3306:3306'
